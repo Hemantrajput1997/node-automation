@@ -1,0 +1,28 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up SSH key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.KEY }}
+        # You'll need to add the corresponding public key to your AWS server's authorized_keys files
+
+    - name: Deploy to AWS
+      run: |
+        ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/ ubuntu@3.138.33.29 "
+        cd /var/www/html/node
+        sudo git pull origin main
+        sudo /var/www/html/react/docker.sh "
+        
