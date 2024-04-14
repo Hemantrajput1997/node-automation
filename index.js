@@ -3,7 +3,7 @@ const port = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  const msg = 'Hello Node this code works on cicd using github actions !\n'
+  const msg = 'Hello new changes in index file to test cdi cdNode!\n'
   res.end(msg);
 });
 
