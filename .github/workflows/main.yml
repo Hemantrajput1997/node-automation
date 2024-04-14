@@ -24,5 +24,5 @@ jobs:
         ssh -o StrictHostKeyChecking=no -i $HOME/.ssh/ ubuntu@3.138.33.29 "
         cd /var/www/html/node
         sudo git pull origin main
-        sudo /var/www/html/react/docker.sh "
+        sudo /var/www/html/node/docker.sh "
         
